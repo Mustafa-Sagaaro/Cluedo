@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="spielstyle.css">
+<head>
+    <title>Cluedo Spiel</title>
+</head>
+<body>
+    <h1>Spiel läuft!</h1>
+    <form th:action="@{/vermutung}" method="post">
+        <h2>Geben Sie Ihre Vermutung ab:</h2>
+        <label for="verdachtiger">Verdächtiger:</label>
+        <select id="verdachtiger" name="verdachtiger">
+            <option th:each="verdachtiger : ${spiel.verdachtige}" th:value="${verdachtiger.name}" th:text="${verdachtiger.name}"></option>
+        </select>
+
+        <label for="waffe">Waffe:</label>
+        <select id="waffe" name="waffe">
+            <option th:each="waffe : ${spiel.waffen}" th:value="${waffe.name}" th:text="${waffe.name}"></option>
+        </select>
+
+        <label for="zimmer">Zimmer:</label>
+        <select id="zimmer" name="zimmer">
+            <option th:each="zimmer : ${spiel.zimmer}" th:value="${zimmer.name}" th:text="${zimmer.name}"></option>
+        </select>
+
+        <input type="submit" value="Vermutung abgeben">
+    </form>
+    <button id="regelwerkButton" onclick="zeigeRegelwerk()">Regelwerk anzeigen</button>
+
+    <div th:if="${nachricht != null}">
+        <p th:text="${nachricht}"></p>
+    </div>
+    <button id="homebutton" onclick="window.location.href='http://localhost:8080/'">Home</button>
+    
+    <button id="mehrspielerStartButton" onclick="window.location.href='/mehrspielerStart'">2 Player</button>
+
+    <button id="einzelspielerStartButton" onclick="window.location.href='/einzelspielerStart'">Solo</button>
+
+    <div th:if="${spiel.mehrspielerModus}">
+        <p>Aktiver Spieler: <span th:text="${spiel.aktiverSpieler}"></span></p>
+    </div>
+    
+    <div class="geschichte">
+        <h3>Was ist passiert?</h3>
+        <p th:text="${geschichte}"></p>
+    </div>
+    
+
+    <div id="regelwerkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="schliesseRegelwerk()">&times;</span>
+            <h2>Cluedo Regelwerk</h2>
+
+            <p><strong>Ziel des Spiels:</strong><br>
+            Finden Sie heraus, welcher Verdächtige in welchem Zimmer mit welcher Waffe ein Verbrechen begangen hat.</p>
+            
+            <p><strong>Spielanleitung:</strong></p>
+            <ol>
+                <li>Zu Beginn des Spiels wird zufällig ein Verdächtiger, eine Waffe und ein Zimmer ausgewählt. Dies bildet die tatsächliche Lösung des Verbrechens.</li>
+                <li>Die Spieler geben abwechselnd Vermutungen ab, indem sie einen Verdächtigen, eine Waffe und einen Raum auswählen.</li>
+                <li>Nach jeder Vermutung erhalten die Spieler Hinweise darauf, welche ihrer Auswahlmöglichkeiten korrekt oder falsch waren.</li>
+                <li>Das Spiel endet, wenn ein Spieler die genaue Kombination aus Verdächtigem, Waffe und Zimmer richtig errät.</li>
+            </ol>
+            
+            <p><strong>Hinweise:</strong><br>
+            - Nutzen Sie die Hinweise nach jeder Vermutung klug, um die Lösung des Verbrechens schrittweise einzugrenzen.<br>
+            - Achten Sie darauf, Ihre Vermutungen mit den anderen Spielern zu besprechen und Strategien zu entwickeln!</p>
+            
+            <p><strong>Viel Spaß und viel Erfolg bei der Aufklärung des Verbrechens!</strong></p>            
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+        function zeigeRegelwerk() {
+        document.getElementById("regelwerkModal").style.display = "block";
+    }
+    function schliesseRegelwerk() {
+        document.getElementById("regelwerkModal").style.display = "none";
+    }
+
+
+</script>
