@@ -50,7 +50,7 @@ public class SpielController {
     @PostMapping("/vermutung")
     public String verarbeiteVermutung(@RequestParam String verdachtiger, @RequestParam String waffe,
             @RequestParam String zimmer, Model model) {
-        ch.bbw.ms.Cluedogame.model.VermutungErgebnis ergebnis = spielService.pruefeVermutung(verdachtiger, waffe,
+        ch.bbw.ms.Cluedo.model.VermutungErgebnis ergebnis = spielService.pruefeVermutung(verdachtiger, waffe,
                 zimmer);
 
         String nachricht = "Hinweise: ";
