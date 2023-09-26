@@ -23,23 +23,19 @@ public class SpielController {
 
     @GetMapping("/start")
     public String startSpiel(Model model) {
-        // Beispiel-Daten
         List<Verdachtiger> verdachtige = Arrays.asList(
                 new Verdachtiger("Sherlock", "/bilder/Sherlock.jpg"),
                 new Verdachtiger("Watson", "/bilder/watson.jpg"),
                 new Verdachtiger("Ahmed", "/bilder/Ahmed.jpg"),
                 new Verdachtiger("Zaki", "/bilder/Zaki.jpg")
-        // ... fügen Sie weitere Verdächtige hinzu
         );
         List<Waffe> waffen = Arrays.asList(
                 new Waffe("Pistole", "/bilder/pistole.jpg"),
                 new Waffe("Messer", "/bilder/messer.jpg")
-        // ... fügen Sie weitere Waffen hinzu
         );
         List<Zimmer> zimmer = Arrays.asList(
                 new Zimmer("Wohnzimmer", "/bilder/wohnzimmer.jpg"),
                 new Zimmer("Küche", "/bilder/kueche.jpg")
-        // ... fügen Sie weitere Zimmer hinzu
         );
 
         spielService.startNeuesSpiel(verdachtige, waffen, zimmer);
