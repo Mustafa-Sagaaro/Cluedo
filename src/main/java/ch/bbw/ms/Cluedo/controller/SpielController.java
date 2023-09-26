@@ -1,6 +1,5 @@
 package ch.bbw.ms.Cluedo.controller;
 
-
 import ch.bbw.ms.Cluedo.model.*;
 import ch.bbw.ms.Cluedo.service.SpielService;
 import org.springframework.stereotype.Controller;
@@ -27,16 +26,13 @@ public class SpielController {
                 new Verdachtiger("Sherlock", "/bilder/Sherlock.jpg"),
                 new Verdachtiger("Watson", "/bilder/watson.jpg"),
                 new Verdachtiger("Ahmed", "/bilder/Ahmed.jpg"),
-                new Verdachtiger("Zaki", "/bilder/Zaki.jpg")
-        );
+                new Verdachtiger("Zaki", "/bilder/Zaki.jpg"));
         List<Waffe> waffen = Arrays.asList(
                 new Waffe("Pistole", "/bilder/pistole.jpg"),
-                new Waffe("Messer", "/bilder/messer.jpg")
-        );
+                new Waffe("Messer", "/bilder/messer.jpg"));
         List<Zimmer> zimmer = Arrays.asList(
                 new Zimmer("Wohnzimmer", "/bilder/wohnzimmer.jpg"),
-                new Zimmer("Küche", "/bilder/kueche.jpg")
-        );
+                new Zimmer("Küche", "/bilder/kueche.jpg"));
 
         spielService.startNeuesSpiel(verdachtige, waffen, zimmer);
 
@@ -82,7 +78,8 @@ public class SpielController {
         if (spielService.getAktuellesSpiel().isMehrspielerModus()) {
             spielService.wechsleSpieler();
         }
-
+        String geschichte = spielService.generiereGeschichte();
+        model.addAttribute("geschichte", geschichte);
         model.addAttribute("spiel", spielService.getAktuellesSpiel());
         model.addAttribute("gewinner", spielService.getGewinner());
 
@@ -105,7 +102,7 @@ public class SpielController {
     public String starteEinzelspielerModus(Model model) {
         spielService.beendeMehrspielerModus();
         model.addAttribute("spiel", spielService.getAktuellesSpiel());
-        
+
         model.addAttribute("spiel", spielService.getAktuellesSpiel());
         String geschichte = spielService.generiereGeschichte();
         model.addAttribute("geschichte", geschichte);
