@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  select,
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  div {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+  }
+  
+  #homebutton {
+    position: absolute;
+    top: 2rem;
+    right: 5rem;
+    border-radius: 5px;
+    background-color: #333;
+    border: transparent;
+    width: 80px;
+    height: 30px;
+    color: white;
+    transition: all ease-in-out 1s;
+  }
+  
+  #homebutton:hover {
+    cursor: pointer;
+    scale: 1.2;
+  }
+  
+  #regelwerkButton {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    border-radius: 5px;
+    background-color: #333;
+    border: transparent;
+    width: 200px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+  
+  }
+  
+  #mehrspielerStartButton {
+  
+      position: absolute;
+      top: 2rem;
+      left: 19rem;
+      border-radius: 5px;
+      background-color: #333;
+      border: transparent;
+      width: 125px;
+      height: 30px;
+      color: white;
+      cursor: pointer;
+  
+  }
+  
+  #einzelspielerStartButton {
+  
+      position: absolute;
+      top: 2rem;
+      left: 27rem;
+      border-radius: 5px;
+      background-color: #333;
+      border: transparent;
+      width: 75px;
+      height: 30px;
+      color: white;
+      cursor: pointer;
+  
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .applause {
+      font-size: 2em;
+      color: green;
+      background-color: yellow;
+      padding: 10px;
+      border: 2px solid red;
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  .geschichte {
+      font-size: 1.2em;
+      color: darkblue;
+      background-color: lightyellow;
+      padding: 10px;
+      border: 1px solid gray;
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  
